@@ -8,11 +8,9 @@ pipeline {
             }
     stages {
         stage ('Build Docker image'){
-            steps{
-             
-                
+            steps{   
                 sh """
-                    docker build -t ${env.JOB_BASE_NAME}:${env.IMAGE_TAG} -f ${pwd}/Dockerfile
+                    docker build -t mytest:1.3 .
                 """
             }
         }
