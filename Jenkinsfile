@@ -5,7 +5,10 @@ pipeline {
     stages {
         stage('Extract SCM'){
             steps{
-                imageV = sh(script: 'uname', returnStdout: true)
+                script{
+                    imageV = sh(script: 'uname', returnStdout: true)
+                }
+                
             }
         
         }
