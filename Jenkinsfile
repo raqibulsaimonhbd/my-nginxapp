@@ -18,8 +18,8 @@ pipeline {
                 //sh 'echo "${imageTAG}"'
                 //sh "docker build --tag myapp:${imageTAG}  . "
                   //sh 'pwd'
-                sh "docker image build -t my-jenkin-build ."
-                sh 'docker image ls'
+                //bash "docker image build -t my-jenkin-build ."
+                bash 'docker image ls'
             }
         }
         
