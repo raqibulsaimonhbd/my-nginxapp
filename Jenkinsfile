@@ -1,14 +1,20 @@
 pipeline {
     agent any
-    //agent { 
-        //docker { image 'python:3.5.1' } 
-
-       // }
     stages {
-        stage('build') {
+        def imageTAG
+        
+        stage('Extract') {
             steps {
-                sh 'git rev-parse --verify HEAD'
+                checkout scm
+                //sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+                imageTAG= sh(script: 'git rev-parse --short HEAD',returnStdout: true).trim()
             }
         }
+        stage ('Build Docker image'){
+            steps{
+                sh "echo ${imageTAG}"
+            }
+        }
+        
     }
 }
