@@ -1,4 +1,4 @@
-def imageTAG='saimon'
+def imageTAG
 def imageV
 pipeline {
     agent any
@@ -14,6 +14,7 @@ pipeline {
         }
         stage ('Build Docker image'){
             steps{   
+                sh'printenv'
               sh "echo ${imageV}"  
                 //sh "docker build -t ${imageTAG}:${imageV} ."
             }
