@@ -16,12 +16,12 @@ pipeline {
                   //sh 'pwd'
                 //bash "docker image build -t my-jenkin-build ."
                 sh """
-                echo ${env.JOB_BASE_NAME }
-                echo ${env.IMAGE_TAG}
+                 ${env.JOB_BASE_NAME }
+                ${env.IMAGE_TAG}
                 """
-                sh '''
-                    docker build -t ${env.JOB_BASE_NAME}:${env.IMAGE_TAG} .
-                '''
+                //sh '''
+                  //  docker build -t ${env.JOB_BASE_NAME}:${env.IMAGE_TAG} .
+                //'''
             }
         }
         
