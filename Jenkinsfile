@@ -1,13 +1,12 @@
 pipeline {
     agent any
     stages {
-        def imageTAG
-        
+        //def imageTAG
         stage('Extract') {
             steps {
                 checkout scm
                 //sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
-                imageTAG= sh(script: 'git rev-parse --short HEAD',returnStdout: true).trim()
+                imageTAG = sh(script: 'git rev-parse --short HEAD',returnStdout: true).trim()
             }
         }
         stage ('Build Docker image'){
