@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Extract SCM'){
             steps{
-                imageV = sh(script: 'git rev-parse --short HEAD', returnStdout: true)
+                imageV = sh'git rev-parse --short HEAD'
             }
         
         }
