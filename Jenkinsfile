@@ -10,7 +10,7 @@ pipeline {
         stage ('Build Docker image'){
             steps{   
                 sh """
-                    docker build -t mytest:1.3 .
+                    docker build -t mytest:${env.IMAGE_TAG} .
                 """
             }
         }
