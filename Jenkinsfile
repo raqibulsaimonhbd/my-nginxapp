@@ -15,8 +15,8 @@ pipeline {
         stage ('Build Docker image'){
             steps{   
                 script{
-                    imageTAG = sh(script: "echo ${env.JOB_BASE_NAME", returnStdout: true}
-                    sh "echo ${imageTAG}"  
+                    imageTAG = sh(script: "echo ${env.JOB_BASE_NAME", returnStdout: true}.trim()
+                    //sh "echo ${imageTAG}"  
                 }
                 
               //sh "echo ${imageTAG}"  
