@@ -1,4 +1,6 @@
-def imageTAG = sh(script: 'git rev-parse --short HEAD', returnStdout: true)
+def imageTAG = """${sh(
+                returnStdout: true, script: 'git rev-parse --short HEAD'
+                )}"""
 pipeline {
     agent any
     stages {
