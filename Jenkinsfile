@@ -19,9 +19,9 @@ pipeline {
                 echo ${env.JOB_BASE_NAME }
                 echo ${env.IMAGE_TAG}
                 """
-                sh """
+                sh '''
                     docker build -t ${env.JOB_BASE_NAME}:${env.IMAGE_TAG} .
-                """
+                '''
             }
         }
         
