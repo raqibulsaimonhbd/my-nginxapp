@@ -1,16 +1,12 @@
 def imageTAG = ''
 pipeline {
     agent any
-    stages {
-        //def imageTAG
-        stage('Extract') {
-            steps {
-                checkout scm
-                script {
-                    imageTAG = sh (returnStdout: true, script:'git rev-parse --short HEAD')
-                }
+    environment{
+                IMAGE_TAG="""${sh(
+                returnStdout: true, script: 'git rev-parse --short HEAD'
+                )}"""
             }
-        }
+    stages {
         stage ('Build Docker image'){
             steps{
                 //sh "docker build -t test-app:${imageTAG} . "
@@ -19,7 +15,7 @@ pipeline {
                 //sh "docker build --tag myapp:${imageTAG}  . "
                   //sh 'pwd'
                 //bash "docker image build -t my-jenkin-build ."
-                bash 'docker image ls'
+                sh 'printenv'
             }
         }
         
