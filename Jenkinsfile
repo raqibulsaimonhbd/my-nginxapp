@@ -18,7 +18,8 @@ pipeline {
                 //sh 'echo "${imageTAG}"'
                 //sh "docker build --tag myapp:${imageTAG}  . "
                   //sh 'pwd'
-                sh "echo ${env.JOB_NAME}"
+                sh "docker image build -t  ${env.JOB_NAME}:${imageTAG} ."
+                sh 'docker image ls'
             }
         }
         
