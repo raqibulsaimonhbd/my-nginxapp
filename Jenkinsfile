@@ -22,6 +22,8 @@ pipeline {
                 }
                 sh """
                     docker image ls
+                    sh "echo ${imageTAG}"  
+                    sh "echo ${imageV}"
                 """
             }
         }
