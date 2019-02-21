@@ -1,14 +1,10 @@
-def imageTAG = """${sh(
-                returnStdout: true, script: 'git rev-parse --short HEAD'
-                )}"""
+def imageTAG='saimon'
 pipeline {
     agent any
     stages {
         stage ('Build Docker image'){
             steps{   
-                sh """
-                    echo ${imageTAG}
-                """
+              sh "echo ${imageTAG}"  
             }
         }
         
