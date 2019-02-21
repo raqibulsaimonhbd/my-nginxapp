@@ -14,8 +14,12 @@ pipeline {
         }
         stage ('Build Docker image'){
             steps{   
-                imageTAG=${env.JOB_BASE_NAME}
-              sh "echo ${imageTAG}"  
+                script{
+                imageTAG = ${env.JOB_BASE_NAME}
+                    sh "echo ${imageTAG}"  
+                }
+                
+              //sh "echo ${imageTAG}"  
                 //sh "docker build -t ${imageTAG}:${imageV} ."
             }
         }
