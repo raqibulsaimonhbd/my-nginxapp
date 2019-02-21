@@ -1,8 +1,14 @@
 def imageTAG='saimon'
-def imageV=sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+def imageV=''
 pipeline {
     agent any
     stages {
+        stage('Extract SCM'){
+            steps{
+                imageV=sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+            }
+        
+        }
         stage ('Build Docker image'){
             steps{   
               sh "echo ${imageV}"  
