@@ -15,7 +15,10 @@ pipeline {
                 //sh "docker build --tag myapp:${imageTAG}  . "
                   //sh 'pwd'
                 //bash "docker image build -t my-jenkin-build ."
-                sh 'printenv'
+                sh """
+                echo ${env.JOB_BASE_NAME }
+                echo ${env.IMAGE_TAG}
+                """
             }
         }
         
