@@ -14,8 +14,8 @@ pipeline {
         }
         stage ('Build Docker image'){
             steps{   
-                sh'printenv'
-              sh "echo ${imageV}"  
+                imageTAG=${env.JOB_BASE_NAME}
+              sh "echo ${imageTAG}"  
                 //sh "docker build -t ${imageTAG}:${imageV} ."
             }
         }
