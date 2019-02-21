@@ -1,11 +1,11 @@
 def imageTAG='saimon'
-def imageV=''
+def imageV
 pipeline {
     agent any
     stages {
         stage('Extract SCM'){
             steps{
-                imageV=sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
+                imageV = sh(script: 'git rev-parse --short HEAD', returnStdout: true)
             }
         
         }
