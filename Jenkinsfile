@@ -6,8 +6,9 @@ pipeline {
         stage('Extract') {
             steps {
                 checkout scm
-                //sh(script: 'git rev-parse --short HEAD', returnStdout: true).trim()
-                imageTAG = sh(script: 'git rev-parse --short HEAD',returnStdout: true).trim()
+                script {
+                    imageTAG = sh (returnStdout: true, script:'git rev-parse --short HEAD')
+                }
             }
         }
         stage ('Build Docker image'){
