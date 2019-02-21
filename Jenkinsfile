@@ -16,10 +16,13 @@ pipeline {
             steps{   
                 script{
                     imageTAG = sh(script: "echo ${env.JOB_BASE_NAME}", returnStdout: true)
-                    sh "echo ${imageTAG}"  
-                    sh "echo ${imageV}"
+                    //sh "echo ${imageTAG}"  
+                    //sh "echo ${imageV}"
                     //sh "docker build -t ${imageTAG}:${imageV} ."
                 }
+                sh """
+                    docker image ls
+                """
             }
         }
         
