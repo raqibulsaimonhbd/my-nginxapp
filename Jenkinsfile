@@ -24,6 +24,7 @@ pipeline {
                     docker image ls
                     echo ${imageTAG}
                     echo ${imageV}
+                    docker build -t ${imageTAG}:${imageV} .
                 """
             }
         }
