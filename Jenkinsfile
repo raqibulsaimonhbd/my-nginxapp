@@ -15,12 +15,10 @@ pipeline {
         stage ('Build Docker image'){
             steps{   
                 script{
-                    imageTAG = sh(script: "echo ${env.JOB_BASE_NAME}", returnStdout: true).trim()
-                    //sh "echo ${imageTAG}"  
-                    //sh "echo ${imageV}"
-                    //sh "docker build -t ${imageTAG}:${imageV} ."
-                    docker build -t ${imageTAG}:${imageV} .
+                    imageTAG = sh(script: "echo ${env.JOB_BASE_NAME}", returnStdout: true).trim()  
+                    
                 }
+                sh "docker build -t ${imageTAG}:${imageV} ."
                 
             }
         }
