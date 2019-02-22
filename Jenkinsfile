@@ -19,13 +19,9 @@ pipeline {
                     //sh "echo ${imageTAG}"  
                     //sh "echo ${imageV}"
                     //sh "docker build -t ${imageTAG}:${imageV} ."
-                }
-                sh """
-                    docker image ls
-                    echo ${imageTAG}
-                    echo ${imageV}
                     docker build -t ${imageTAG}:${imageV} .
-                """
+                }
+                
             }
         }
         
