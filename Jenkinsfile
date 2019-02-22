@@ -19,6 +19,7 @@ pipeline {
                     
                 }
                 sh "docker build -t ${imageTAG}:${imageV} ."
+                sh "docker image rm ${imageTAG}:${imageV}"
                 
             }
         }
