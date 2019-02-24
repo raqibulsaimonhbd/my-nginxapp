@@ -26,6 +26,7 @@ pipeline {
         stage ('Helm Deploy'){
             steps{
                 sh 'ls -l'
+                sh 'helm install --debug --dry-run myappchart'
             }
         }
     }
