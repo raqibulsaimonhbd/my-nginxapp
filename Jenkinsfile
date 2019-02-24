@@ -27,6 +27,7 @@ pipeline {
             steps{
                 sh 'ls -l'
                 sh 'helm install --debug --dry-run myappchart'
+                sh 'helm install myappchart'
             }
         }
     }
